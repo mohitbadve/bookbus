@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form name = "form" action = "http://127.0.0.1:8000/login/" method = "post" >{% csrf_token %}
+         <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter username" name = "username" />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <input type = "password" style = "margin-left:20%;" placeholder = "Enter password" name = "password" />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                    height:35px; width:80%;margin-left:19%;" type = "submit"
+                    value = "Login" >
+                  <strong>Login</strong>
+               </button>
+         </div>
+
+      </form>
+</body>
+</html>

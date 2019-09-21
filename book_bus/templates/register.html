@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form name = "form" action = "http://127.0.0.1:8000/register/" method = "post" >{% csrf_token %}
+         <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter email-id" name = "email_id" />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <input type = "date" style = "margin-left:20%;" placeholder = "Enter date of birth" name = "dob" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter address" name = "address" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter pincode" name = "pincode" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "tel" style = "margin-left:20%;" placeholder = "Enter mobile number" name = "mob_no" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "password" style = "margin-left:20%;" placeholder = "Enter your password that you can remember" name = "password" />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                    height:35px; width:80%;margin-left:19%;" type = "submit"
+                    value = "Register" >
+                  <strong>Register</strong>
+               </button>
+         </div>
+
+      </form>
+</body>
+</html>
+
