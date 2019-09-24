@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Form</title>
+</head>
+{% if username != '' %}
+<body>
+<h1>Buses</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>No.of Seats</th>
+    <th>Time</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for b in bus %}
+    <tr>
+    <td>{{ b.bus_id }}</td>
+    <td>{{ b.name }}</td>
+    <td>{{ b.source }}</td>
+    <td>{{ b.destination }}</td>
+    <td>{{ b.no_of_seats }}</td>
+    <td>{{ b.time }}</td>
+    <td><a href="http://127.0.0.1:8000/form-update-bus/{{ b.bus_id }}">Update</a></td>
+    <td><a href="http://127.0.0.1:8000/delete-bus/{{ b.bus_id }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="http://127.0.0.1:8000/form-add-bus/">New</a>
+</body>
+{% else %}
+<body>
+<h1>First Log in</h1>
+</body>
+{% endif %}
+</html>

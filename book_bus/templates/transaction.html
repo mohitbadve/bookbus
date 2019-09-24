@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>TRANSACTION</h1>
+    <form name = "form" action = "http://127.0.0.1:8000/transaction/{{ bus_id }}" method = "post" >{% csrf_token %}
+{#        <div style = "max-width:470px;">#}
+{#           <input type = "text" style = "margin-left:20%;" placeholder = "{{ row }}" name = "seat_row" value="{{ row }}" readonly/>#}
+{#            <input type = "text" style = "margin-left:20%;" placeholder = "Row" name = "seat_row"/>#}
+{#        </div>#}
+{#        <br>#}
+{#        <div style = "max-width:470px;">#}
+{#           <input type = "text" style = "margin-left:20%;" placeholder = "{{ col }}" name = "seat_col" value="{{ col }}" readonly/>#}
+{#            <input type = "text" style = "margin-left:20%;" placeholder = "Col" name = "seat_col"/>#}
+{#        </div>#}
+{#        <br>#}
+
+        #NEW
+        <div style = "max-width:470px;">
+           <input type = "text" style = "margin-left:20%;" placeholder = "{{ seats }}" name = "seat_data" value="{{ seats }}" readonly/>
+{#            <input type = "text" style = "margin-left:20%;" placeholder = "Col" name = "seat_col"/>#}
+        </div>
+        <br>
+
+        <p>Amount required: {{ amt }}</p>
+        <div style = "max-width:470px;">
+            <input type = "text" style = "margin-left:20%;" placeholder = "Amount" name = "amount"/>
+         </div>
+        <br>
+        <div style = "max-width:470px;">
+           <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                height:35px; width:80%;margin-left:19%;" type = "submit"
+                value = "Transaction" >
+              <strong>Confirm</strong>
+           </button>
+        </div>
+      </form>
+</body>
+</html>

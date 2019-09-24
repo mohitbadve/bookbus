@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seat</title>
+    <script language="javascript">
+        function setSeat() {
+            var tbl = document.getElementById("seat_table");
+            if (tbl != null) {
+                for (var i = 1; i < tbl.rows.length; i++) {
+                    for (var j = 1; j < tbl.rows[i].cells.length; j++) {
+                        tbl.rows[i].cells[j].onclick = function () {
+                            seat_cell(this);
+                        };
+                        tbl.rows[i].cells[j].setAttribute("value","F");
+                    }
+                }
+                {% for seat in seats %}
+                    tbl.rows[{{ seat.seat_row }}].cells[{{ seat.seat_col }}].setAttribute("style","background-color:red;");
+                    tbl.rows[{{ seat.seat_row }}].cells[{{ seat.seat_col }}].onclick = null;
+                {% endfor %}
+            }
+        }
+        function emptiness(){
+        }
+        function seat_cell(cell) {
+            {#var row = document.getElementById("row_input");#}
+            {#var col = document.getElementById("col_input");#}
+            {#row.value = cell.parentNode.rowIndex;#}
+            {#col.value = cell.cellIndex;#}
+
+            {#var form = document.getElementById("seat_form");#}
+            var text_box = document.getElementById("seat_data");
+            var cell_name = cell.getAttribute("name");
+            if(cell.getAttribute("value") === "F"){
+                cell.setAttribute("style","background-color:blue;");
+                cell.setAttribute("value","T");
+
+                {#ADD SEAT TEXT#}
+                {#var newElement = document.createElement("input");#}
+                {#newElement.setAttribute("id",cell_name);#}
+                {#newElement.value = "Seat "+cell_name;#}
+                {#newElement.setAttribute("readonly",true);#}
+                {#form.appendChild(newElement);#}
+
+                text_box.value = text_box.value + cell_name + " ";
+            }
+            else if(cell.getAttribute("value") === "T"){
+                cell.setAttribute("style","background-color:green;");
+                cell.setAttribute("value","F");
+
+                {#REMOVE SEAT TEXT#}
+                {#var element = document.getElementById(cell_name);#}
+                {#element.parentNode.removeChild(element);#}
+                seat_value = text_box.value.split(" ");
+                seat_value = seat_value.filter(function (value) {
+                    return value !== cell_name;
+                });
+                text_box.value = seat_value.join(" ");
+            }
+        }
+    </script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body onload="setSeat()">
+    {% comment %}{% for seat in seats %}
+        <p>Seat: {{ seat.seat_row }} and {{ seat.seat_col }}</p>
+    {% endfor %}{% endcomment %}
+    <h1>CURRENT SEATS</h1>
+    <table id="seat_table">
+        <tr>
+                <th></th>
+            {% for i in col %}
+                <th>C-{{ i }}</th>
+            {% endfor %}
+        </tr>
+        {% for j in row %}
+        <tr>
+                <td>R-{{ j }}</td>
+            {% for i in col %}
+                <td style="background-color: green;" name="{{ j }}-{{ i }}"></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% for i in col %}
+
+    {% endfor %}
+    <h1>BOOK SEATS</h1>
+    <p>Remaining seats: {{ bus.available_seats }}</p>
+    <form id="seat_form" name = "form" action = "http://127.0.0.1:8000/transaction/{{ bus.bus_id }}" method = "get" >{% csrf_token %}
+{#         <div style = "max-width:470px;">#}
+{#               <input id="row_input" type = "text" style = "margin-left:20%;" placeholder = "Enter row" name = "seat_row" readonly/>#}
+{#         </div>#}
+{#         <br>#}
+{#         <div style = "max-width:470px;">#}
+{#               <input id="col_input" type = "text" style = "margin-left:20%;" placeholder = "Enter col" name = "seat_col" readonly/>#}
+{#         </div>#}
+{#         <br>#}
+
+        #NEW
+        <div style = "max-width:470px;">
+               <input id="seat_data" type = "text" style = "margin-left:20%;" placeholder = "" name = "seat_data" readonly/>
+         </div>
+
+         <div style = "max-width:470px;">
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                    height:35px; width:80%;margin-left:19%;" type = "submit" value = "Seat" >
+                  <strong>Book</strong>
+               </button>
+         </div>
+      </form>
+</body>
+</html>

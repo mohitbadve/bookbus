@@ -42,14 +42,49 @@ class Bus(models.Model):
     source = models.CharField(max_length=20)
     destination = models.CharField(max_length=20)
     no_of_seats = models.IntegerField()
-    time = models.FloatField()
+    time = models.TimeField()
     description = models.CharField(max_length=10)
+    availability = models.CharField(default='A',max_length=1)
+    available_seats = models.IntegerField(default=no_of_seats)
 
     @classmethod
-    def create(cls, bus_id,name,source,destination,no_of_seats,time,description):
-        bus = cls(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,description=description)
+    def create(cls, bus_id,name,source,destination,no_of_seats,time,description,availability,available_seats):
+        bus = cls(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,description=description,availability=availability,available_seats=available_seats)
         return bus
 
     class Meta:
         db_table = "bus"
+
+
+class Seat(models.Model):
+    # bus_id = models.ForeignKey(Bus,on_delete=models.CASCADE)
+    bus_id = models.IntegerField()
+    seat_row = models.IntegerField()
+    seat_col = models.IntegerField()
+
+    @classmethod
+    def create(cls, bus_id, seat_row, seat_col):
+        seat = cls(bus_id=bus_id, seat_row=seat_row, seat_col=seat_col)
+        return seat
+
+    class Meta:
+        db_table = "seat"
+
+class Transaction(models.Model):
+    trans_id = models.IntegerField()
+    amt = models.FloatField()
+    bus_id = models.IntegerField()
+    seat_row = models.IntegerField()
+    seat_col = models.IntegerField()
+
+    @classmethod
+    def create(cls, trans_id,amt, bus_id, seat_row, seat_col):
+        trans = cls(trans_id=trans_id,amt=amt, bus_id=bus_id, seat_row=seat_row, seat_col=seat_col)
+        return trans
+
+    class Meta:
+        db_table = "trans"
+
+
+
 

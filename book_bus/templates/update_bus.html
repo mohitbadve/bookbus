@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus</title>
+</head>
+
+<body>
+    <h1>Bus</h1>
+    <form name = "form" action = "http://127.0.0.1:8000/update-bus/" method = "post" >{% csrf_token %}
+         <div style = "max-width:470px;">
+               <input type = "number" name = 'bus_id' readonly style = "margin-left:20%;"  value='{{ bus.bus_id }}'  />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" name = "name"  value = '{{ bus.name }}' />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" name = "source" value = '{{ bus.source }}'  />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" name = "destination" value = '{{ bus.destination }}'  />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "number" style = "margin-left:20%;"  name = "no_of_seats" value = '{{ bus.no_of_seats }}'  />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "time" style = "margin-left:20%;" name = "time"  value = '{{ bus.time }}' />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" name = "description" value ='{{ bus.description }}'  />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                    height:35px; width:80%;margin-left:19%;" type = "submit"
+                    value = "Update" >
+                  <strong>Update</strong>
+               </button>
+         </div>
+
+      </form>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Bus</title>
+</head>
+{% if username != '' %}
+<body>
+    <h1>Search Bus</h1>
+    <form name = "form" action = "http://127.0.0.1:8000/search-bus/" method = "post" >{% csrf_token %}
+         <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter name" name = "name"/>
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter source" name = "source" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "text" style = "margin-left:20%;" placeholder = "Enter destination" name = "destination" />
+         </div>
+         <br>
+        <div style = "max-width:470px;">
+               <input type = "time" style = "margin-left:20%;" placeholder = "Enter arrival time" name = "time" />
+         </div>
+         <br>
+         <div style = "max-width:470px;">
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                    height:35px; width:80%;margin-left:19%;" type = "submit"
+                    value = "Query" >
+                  <strong>Query</strong>
+               </button>
+         </div>
+
+      </form>
+    {% if query == 'True' %}
+        <h1>Query</h1>
+        {% for b in buses %}
+            <h3>{{ b.name }}</h3>
+        {% endfor %}
+        {% endif %}
+</body>
+{% else %}
+<body>
+    <h1>First Log in</h1>
+</body>
+{% endif %}
+</html>
+
