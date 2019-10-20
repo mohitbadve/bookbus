@@ -80,11 +80,25 @@ def addBus(request):
         description = bus_data.data['description']
         availability = 'A'
         available_seats = no_of_seats
-        bus = Bus.create(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,description=description,availability=availability,available_seats=available_seats)
+
+        #NEWNWEWDS
+        no_of_rows = int(bus_data.data['no_of_rows'])
+        no_of_columns = int(bus_data.data['no_of_columns'])
+        seat = bus_data.data['seat_data']
+        seat_cal = seat.split(" ")[:-1]
+        bus = Bus.create(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,
+                         description=description,availability=availability,available_seats=available_seats, no_of_columns=no_of_columns, no_of_rows=no_of_rows)
+        for i in seat_cal:
+            temp = i.split("-")
+            row = int(temp[0])
+            col = int(temp[1])
+            seat = Seat.create(bus_id=bus_id,seat_row=row,seat_col=col,seat_status="A")
+            seat.save()
         bus.save()
         print(bus)
         return redirect(to='http://127.0.0.1:8000/form-bus')
-    except:
+    except Exception as e:
+        print(e)
         return render(request, 'e404.html')
 
 
@@ -206,16 +220,15 @@ def seat(request,b_id):
     bus_id = b_id
     seats = Seat.objects.filter(bus_id=bus_id)
     bus = Bus.objects.get(bus_id=bus_id,availability='A')
-    col = int(2)
-    row = int(bus.no_of_seats/2)
-    return render(request, 'seat.html', {"seats":seats, "bus":bus, "col": range(1,col+1), "row": range(1,row+1)})
+    col = bus.no_of_columns
+    row = bus.no_of_rows
+    return render(request, 'seat.html', {"seats": seats, "bus": bus, "col": range(1, col + 1), "row": range(1, row + 1)})
 
 def transaction(request,b_id):
+    calculated_amount = 0
     if request.method == "POST":
         trans_data = TransactionForm(request.POST)
         amt = trans_data.data['amount']
-        #row = trans_data.data['seat_row']
-       # col = trans_data.data['seat_col']
         seat = trans_data.data['seat_data']
         seat_cal = seat.split(" ")[:-1]
         calculated_amount = 0
@@ -225,21 +238,17 @@ def transaction(request,b_id):
         bus_id = b_id
         bus = Bus.objects.get(bus_id=bus_id,availability='A')
         bus.available_seats = bus.available_seats - len(seat_cal)
-        #seat = Seat.create(bus_id=bus.bus_id, seat_row=row, seat_col=col)
         amt = trans_data.data['amount']
         trans_id = Transaction.objects.all().count()+1
-        # trans = Transaction.create(trans_id=trans_id,bus_id=bus.bus_id, seat_row=row, seat_col=col, amt=amt)
-        # if float(amt) == float(20):
-        #     trans.save()
-        #     seat.save()
-        #     bus.save()
+
         if float(amt) == float(calculated_amount):
-            # NEW SEAT
+
             for i in seat_cal:
                 temp = i.split("-")
                 row = int(temp[0])
                 col = int(temp[1])
-                seat = Seat.create(bus_id=bus.bus_id, seat_row=row, seat_col=col)
+                seat = Seat.objects.get(bus_id=bus.bus_id, seat_row=row,seat_col=col)
+                seat.seat_status = "N"
                 trans = Transaction.create(trans_id=trans_id,bus_id=bus.bus_id, seat_row=row, seat_col=col, amt=amt)
                 trans.save()
                 seat.save()
@@ -251,17 +260,15 @@ def transaction(request,b_id):
             return render(request, 'e404.html')
     else:
         seat_form = SeatForm(request.GET)
-        # row = seat_data.data['seat_row']
-        # col = seat_data.data['seat_col']
         seat = seat_form.data['seat_data']
         seat_cal = seat.split(" ")[:-1]
         bus_id = b_id
         seat_price = 10
-        temp = 0
+        calculated_amount = 0
         for i in seat_cal:
-            temp = temp + seat_price
+            calculated_amount = calculated_amount + seat_price
 
-        return render(request, 'transaction.html', {'seats':seat, "amt": temp,'bus_id':bus_id})
+        return render(request, 'transaction.html', {'seats':seat, "amt": calculated_amount,'bus_id':bus_id})
 
 
 

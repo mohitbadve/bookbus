@@ -47,9 +47,18 @@ class Bus(models.Model):
     availability = models.CharField(default='A',max_length=1)
     available_seats = models.IntegerField(default=no_of_seats)
 
+    #NEWWW AJSAKAJGSAAKASJHSA
+    no_of_rows = models.IntegerField(default=1)
+    no_of_columns = models.IntegerField(default=1)
+
     @classmethod
-    def create(cls, bus_id,name,source,destination,no_of_seats,time,description,availability,available_seats):
-        bus = cls(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,description=description,availability=availability,available_seats=available_seats)
+    def create(cls, bus_id,name,source,destination,no_of_seats,time,description,availability,available_seats,no_of_rows,no_of_columns):
+        bus = cls(bus_id = bus_id,name=name,source = source,destination =destination, no_of_seats=no_of_seats,time = time,description=description,availability=availability,
+                  available_seats=available_seats, no_of_rows=no_of_rows,no_of_columns=no_of_columns)
+        # for i in range(1,no_of_rows+1):
+        #     for j in range(1,no_of_columns+1):
+        #         seat = Seat.create(bus_id=bus_id,seat_row=i,seat_col=j,seat_status='A')
+        #         seat.save()
         return bus
 
     class Meta:
@@ -62,9 +71,12 @@ class Seat(models.Model):
     seat_row = models.IntegerField()
     seat_col = models.IntegerField()
 
+    #AOHISIOAHSOAHSOA
+    seat_status = models.CharField(default='A',max_length=1)
+
     @classmethod
-    def create(cls, bus_id, seat_row, seat_col):
-        seat = cls(bus_id=bus_id, seat_row=seat_row, seat_col=seat_col)
+    def create(cls, bus_id, seat_row, seat_col,seat_status):
+        seat = cls(bus_id=bus_id, seat_row=seat_row, seat_col=seat_col, seat_status=seat_status)
         return seat
 
     class Meta:

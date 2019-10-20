@@ -22,6 +22,11 @@ class BusForm(forms.Form):
    description = forms.CharField(max_length=10)
    availability = forms.CharField(max_length=1)
 
+   #ASDJASDJASD
+   no_of_rows = forms.IntegerField()
+   no_of_columns = forms.IntegerField()
+   seat_data = forms.CharField()
+
 class ForgotPasswordForm(forms.Form):
    email_id = forms.CharField(max_length=20)
 
@@ -33,13 +38,9 @@ class SearchBusForm(forms.Form):
    time = forms.TimeField()
 
 class SeatForm(forms.Form):
-   #seat_row = forms.IntegerField()
-   #seat_col = forms.IntegerField()
    seat_data = forms.CharField()
 
 class TransactionForm(forms.Form):
-   #seat_row = forms.IntegerField()
-   #seat_col = forms.IntegerField()
    seat_data = forms.CharField()
    amt = forms.FloatField()
 
