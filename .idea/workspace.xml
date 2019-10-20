@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d01fcee2-11ec-41f6-bc0b-638b099447f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3ebd53af-4d4a-4782-b0e0-b67763358719.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/9f36c412-0acb-4072-a232-a75b1eed1938.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book_bus/app_version_1/migrations/0007_auto_20191002_0831.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bookbusgit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bookbusgit.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_bus/app_version_1/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/app_version_1/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_bus/app_version_1/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/app_version_1/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_bus/app_version_1/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/app_version_1/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_bus/app_version_1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/app_version_1/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_bus/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_bus/templates/seat.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/templates/seat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_bus/templates/transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/templates/transaction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book_bus/templates/update_bus_ui.html" beforeDir="false" afterPath="$PROJECT_DIR$/book_bus/templates/update_bus_ui.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,12 +38,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book_bus/app_version_1/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
-              <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
+            <state relative-caret-position="1697">
+              <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <element signature="e#4346#5229#0" />
-                <element signature="e#5265#5635#0" />
                 <element signature="e#5773#6488#0" />
                 <element signature="e#6525#6586#0" />
                 <element signature="e#6616#7302#0" />
@@ -67,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-62">
-              <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+            <state relative-caret-position="428">
+              <caret line="237" column="20" lean-forward="true" selection-start-line="237" selection-start-column="20" selection-end-line="239" selection-end-column="26" />
               <folding>
                 <element signature="e#285#335#0#HTML" />
                 <element signature="e#376#422#0#HTML" />
@@ -78,36 +64,31 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book_bus/templates/seat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3360">
-              <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
+            <state relative-caret-position="202">
+              <caret line="162" column="16" lean-forward="true" selection-start-line="162" selection-start-column="16" selection-end-line="164" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/book_bus/templates/update_bus_ui.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="239" column="28" selection-start-line="239" selection-start-column="28" selection-end-line="239" selection-end-column="28" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_bus/templates/transaction.html">
+        <entry file="file://$PROJECT_DIR$/book_bus/templates/bus_form_ui.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#h4#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-3148" />
           </provider>
         </entry>
       </file>
@@ -116,15 +97,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book_bus/app_version_1/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="60" column="29" lean-forward="true" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -141,10 +113,11 @@
         <option value="$PROJECT_DIR$/book_bus/static/css/style_bus_form.css" />
         <option value="$PROJECT_DIR$/book_bus/app_version_1/forms.py" />
         <option value="$PROJECT_DIR$/book_bus/app_version_1/models.py" />
-        <option value="$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html" />
-        <option value="$PROJECT_DIR$/book_bus/app_version_1/views.py" />
         <option value="$PROJECT_DIR$/book_bus/templates/transaction.html" />
         <option value="$PROJECT_DIR$/book_bus/templates/seat.html" />
+        <option value="$PROJECT_DIR$/book_bus/app_version_1/views.py" />
+        <option value="$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html" />
+        <option value="$PROJECT_DIR$/book_bus/templates/update_bus_ui.html" />
       </list>
     </option>
   </component>
@@ -164,6 +137,23 @@
             <path>
               <item name="bookbus" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookbus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookbus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookbus" type="462c0819:PsiDirectoryNode" />
+              <item name="book_bus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookbus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookbus" type="462c0819:PsiDirectoryNode" />
+              <item name="book_bus" type="462c0819:PsiDirectoryNode" />
+              <item name="app_version_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookbus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookbus" type="462c0819:PsiDirectoryNode" />
+              <item name="book_bus" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,7 +263,7 @@
       <workItem from="1570022156512" duration="1557000" />
       <workItem from="1570250472817" duration="57000" />
       <workItem from="1570265243879" duration="6540000" />
-      <workItem from="1571561550977" duration="26238000" />
+      <workItem from="1571561550977" duration="28422000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1569072824296</created>
@@ -296,14 +286,22 @@
       <option name="project" value="LOCAL" />
       <updated>1569073567336</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Seat UI, Transaction UI and Add Bus UI">
+      <created>1571594264639</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571594264639</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46702000" />
+    <option name="totallyTimeSpent" value="48886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.271855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -333,12 +331,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Seat UI, Transaction UI and Add Bus UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seat UI, Transaction UI and Add Bus UI" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/book_bus/templates/bus_form_ui.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/book_bus/book_bus/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
@@ -398,18 +394,6 @@
         <state relative-caret-position="-144" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
-          <folding>
-            <element signature="e#285#335#0#HTML" />
-            <element signature="e#376#422#0#HTML" />
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/book_bus/templates/transaction.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -427,12 +411,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/book_bus/app_version_1/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
+        <state relative-caret-position="1697">
+          <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <element signature="e#4346#5229#0" />
-            <element signature="e#5265#5635#0" />
             <element signature="e#5773#6488#0" />
             <element signature="e#6525#6586#0" />
             <element signature="e#6616#7302#0" />
@@ -440,16 +422,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/book_bus/templates/bus_form_ui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3148" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/book_bus/templates/seat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3360">
-          <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
+        <state relative-caret-position="202">
+          <caret line="162" column="16" lean-forward="true" selection-start-line="162" selection-start-column="16" selection-end-line="164" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_bus/templates/add_bus_form_ui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="237" column="20" lean-forward="true" selection-start-line="237" selection-start-column="20" selection-end-line="239" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#285#335#0#HTML" />
+            <element signature="e#376#422#0#HTML" />
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book_bus/templates/update_bus_ui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="239" column="28" selection-start-line="239" selection-start-column="28" selection-end-line="239" selection-end-column="28" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

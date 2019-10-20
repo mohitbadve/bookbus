@@ -15,6 +15,108 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+
+        function pageLoad(){
+            var n_row = document.getElementById("no_of_rows");
+            var n_col = document.getElementById("no_of_columns");
+            n_col.setAttribute("onfocusout","setTable()");
+            n_row.setAttribute("onfocusout","setTable()");
+
+        }
+
+        function setTable(){
+            var n_row = parseInt(document.getElementById("no_of_rows").value,10);
+            var n_col = parseInt(document.getElementById("no_of_columns").value,10);
+            var table = document.getElementById("seat_table");
+            var prev = table.previousSibling;
+            if(prev.tagName === "LABEL"){
+                prev.remove();
+            }
+            var next = table.nextElementSibling;
+            if(next.tagName === "BR"){
+                next.remove();
+            }
+            var first = table.firstElementChild;
+            while(first){
+                first.remove();
+                first = table.firstElementChild;
+            }
+            if(n_row > 0 && n_col > 0){
+                createTable(n_row, n_col);
+            }
+        }
+
+        function createTable(n_row, n_col){
+            var table = document.getElementById("seat_table");
+            var label = document.createElement("label");
+            label.innerHTML = "Select Seats";
+            table.parentNode.insertBefore(label, table);
+
+            padding = "7px";
+            border = "1px solid black";
+            table.style.border = border;
+            table.style.padding = padding;
+            table.style.borderCollapse = "collapse";
+
+            var header = table.createTHead();
+            var row = header.insertRow(0);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "";
+            cell.style.border = border;
+            cell.style.padding = padding;
+            for(var j = 1; j<n_col+1; j++){
+                    var cell = row.insertCell(j);
+                    cell.innerHTML = "C-"+j;
+                    cell.style.border = border;
+                    cell.style.padding = padding;
+            }
+
+            for(var i = 1; i<n_row+1; i++){
+                var row = table.insertRow(i);
+                var cell = row.insertCell(0);
+                cell.innerHTML = "R-"+i;
+                cell.style.border = border;
+                cell.style.padding = padding;
+                for(var j = 1; j<n_col+1; j++){
+                    var cell = row.insertCell(j);
+                    cell.style.backgroundColor = "red";
+                    cell.style.border = border;
+                    cell.style.padding = padding;
+                    cell.setAttribute("name",i+"-"+j);
+                    cell.setAttribute("value","F");
+                    cell.onclick = function () {
+                        seat_cell(this)
+                    }
+                }
+            }
+
+            var br = document.createElement("br");
+            table.parentNode.insertBefore(br, table.nextSibling);
+        }
+        function seat_cell(cell) {
+            var text_box = document.getElementById("seat_data");
+            var cell_name = cell.getAttribute("name");
+            padding = "7px";
+            border = "1px solid black";
+            if(cell.getAttribute("value") === "F"){
+                cell.setAttribute("style","background-color:green;");
+                cell.setAttribute("value","T");
+                cell.style.padding = padding;
+                cell.style.border = border;
+                text_box.value = text_box.value + cell_name + " ";
+            }
+            else if(cell.getAttribute("value") === "T"){
+                cell.setAttribute("style","background-color:red;");
+                cell.setAttribute("value","F");
+                cell.style.padding = padding;
+                cell.style.border = border;
+                seat_value = text_box.value.split(" ");
+                seat_value = seat_value.filter(function (value) {
+                    return value !== cell_name;
+                });
+                text_box.value = seat_value.join(" ");
+            }
+        }
     </script>
     <!-- //Meta-Tags -->
 	
@@ -79,7 +181,7 @@
 
 </body>
 {% else %}
-<body>
+<body onload="pageLoad()">
 
 <div class="signupform">
 	<div class="container">
@@ -121,6 +223,23 @@
 						<span class="fa fa-phone" aria-hidden="true"></span>
 						<input type="text" value="{{ bus.no_of_seats }}" name = 'no_of_seats' required="">
 					</div>
+                    {% if bus.availability == "N" %}
+                        <label>No.of Rows</label>
+                        <div class="input-group">
+                            <span class="fa fa-phone" aria-hidden="true"></span>
+                            <input type="number" min="0" placeholder="Enter No.of Rows" name = 'no_of_rows' id="no_of_rows" value="0" required="">
+                        </div>
+                        <label>No.of Columns</label>
+                        <div class="input-group">
+                            <span class="fa fa-phone" aria-hidden="true"></span>
+                            <input type="number" min="0" placeholder="Enter No.of Columns" name = 'no_of_columns' id="no_of_columns" value="0" required="">
+                        </div>
+
+                        <table id="seat_table"></table>
+                        <div class="" style = "max-width:470px;display: none" id="seat_div">
+                            <input id="seat_data" type = "text" style = "margin-left:20%;" placeholder = "" name = "seat_data" readonly/>
+                        </div>
+                    {% endif %}
 					<label>Time</label>
 					<div class="input-group">
 						<span class="fa fa-clock-o" aria-hidden="true"></span>

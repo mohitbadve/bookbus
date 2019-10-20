@@ -128,6 +128,15 @@ def updateBus(request):
         description = bus_data.data['description']
         availability = 'A'
         bus = get_object_or_404(Bus,bus_id=bus_id)
+        if bus.availability == "N":
+            seat = bus_data.data['seat_data']
+            seat_cal = seat.split(" ")[:-1]
+            for i in seat_cal:
+                temp = i.split("-")
+                row = int(temp[0])
+                col = int(temp[1])
+                seat = Seat.create(bus_id=bus_id, seat_row=row, seat_col=col, seat_status="A")
+                seat.save()
         bus.name = name
         bus.source = source
         bus.destination = destination
@@ -148,6 +157,8 @@ def deleteBus(request,b_id):
             bus_id = b_id
             bus = get_object_or_404(Bus,bus_id=bus_id)
             bus.availability = 'N'
+            seat = Seat.objects.filter(bus_id=b_id).delete()
+            # seat.save()
             bus.save()
             return redirect(to='http://127.0.0.1:8000/form-bus')
         except:
