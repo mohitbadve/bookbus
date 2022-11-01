@@ -1,0 +1,79 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container my-5">
+    {% for message in messages %} {% if message.tags %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endif %} {% endfor %}
+    <div class="card rounded-0">
+        <div class="card-header">
+            <div class="card-title h3 mb-0">List of Bookings</div>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr class="bg-gradient bg-primary text-light">
+                            <th class="p-1 text-center">BOOKING ID</th>
+                            <th class="p-1 text-center">USER NAME</th>
+                            <th class="p-1 text-center">BUS NAME</th>
+                            <th class="p-1 text-center">SOURCE</th>
+                            <th class="p-1 text-center">DESTINATION</th>
+                            <th class="p-1 text-center">NUM OF SEATS</th>
+                            <th class="p-1 text-center">PRICE</th>
+                            <th class="p-1 text-center">DATE</th>
+                            <th class="p-1 text-center">TIME</th>
+                            <th class="p-1 text-center">STATUS</th>
+                        </tr>
+                    </thead>
+
+                    {% for row in book_list %}
+                    <tr>
+                        <td class="px-2 py-1 align-middle">{{row.id}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.name}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.bus_name}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.source}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.dest}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.nos}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.price}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.date}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.time}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.status}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-12">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <div class="card-title h3 mb-0">Cancell Booking Form</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'cancellings' %}" method="post" id="cancel-form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="bus_id" class="control-label">Booking ID</label>
+                                <input name='bus_id' class="form-control" type="number" id="bus_id">
+                            </div>
+                            {% if error %}
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
+
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-sm rounded-0 btn-danger w-100" form="cancel-form">Cancel Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

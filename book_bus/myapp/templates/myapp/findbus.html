@@ -1,0 +1,43 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <div class="card-title h3 mb-0">Find Bus</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'findbus' %}" method="post" id="find-form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="source" class="control-labell">From</label>
+                                <input name='source' class="form-control rounded-0" type="text" id="source" value="{% if data.source %}{{data.source}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="destination" class="control-labell">Destination</label>
+                                <input name='destination' id="destination" class="form-control rounded-0" type="text" value="{% if data.destination %}{{data.destination}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="control-labell">Date</label>
+                                <input name='date' id="date" class="form-control rounded-0" type="date" value="{% if data.date %}{{data.date}}{% endif %}" required>
+
+                            </div>
+                            {% if error %}
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
+
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-sm rounded-0 btn-primary w-100" form="find-form">Find</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

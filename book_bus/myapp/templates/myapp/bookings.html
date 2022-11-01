@@ -1,0 +1,53 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container py-5">
+    <div class="alert alert-success rounded-0 my-3">
+        <h3 class="mb-0">Your booking has been confirmed!</h3>
+    </div>
+    <div class="text-center">
+        <form action="{% url 'seebookings' %}" method="post">
+            {% csrf_token %}
+            <button type="button" class="btn btn-info rounded-0 col-lg-4 col-md-5 col-sm-6 col-xs-6" data-bs-toggle="modal" data-bs-target="#myModal">
+           Details
+        </button>
+            <button type="submit" class="btn btn-primary rounded-0 col-lg-4 col-md-5 col-sm-6 col-xs-6">OK</button>
+        </form>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="fade modal" id="myModal">
+    <div class="modal-dialog rounded-0 modal-dialog-centered">
+        <div class="modal-content rounded-0">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Booking Details</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Bus name:</b> {{book.bus_name}}</li>
+                    <li class="list-group-item"><b>Starting point:</b> {{book.source}}</li>
+                    <li class="list-group-item"><b>Destination point:</b> {{book.dest}}</li>
+                    <li class="list-group-item"><b>Number of seats:</b> {{book.nos}}</li>
+                    <li class="list-group-item"><b>Price:</b> {{book.price}}</li>
+                    <li class="list-group-item"><b>Cost:</b> {{cost}}</li>
+                    <li class="list-group-item"><b>Date:</b> {{book.date}}</li>
+                    <li class="list-group-item"><b>Time:</b> {{book.time}}</li>
+                </ul>
+
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer py-1">
+                <button type="button" class="btn btn-default bg-secondary bg-gradient btn-sm rounded-0 text-light" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

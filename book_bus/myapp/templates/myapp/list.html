@@ -1,0 +1,81 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container py-5">
+    <h3>{{msg}}</h3>
+    <div class="card rounded-0 mb-5">
+        <div class="card-header">
+            <div class="card-title h3 mb-0">List of Scheduled Busses</div>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr class="bg-gradient bg-primary text-light">
+                            <th class="p-1 text-center">ID</th>
+                            <th class="p-1 text-center">NAME</th>
+                            <th class="p-1 text-center">SOURCE</th>
+                            <th class="p-1 text-center">DESTINATION</th>
+                            <th class="p-1 text-center">NUM OF SEATS</th>
+                            <th class="p-1 text-center">NUM OF SEATS REM</th>
+                            <th class="p-1 text-center">PRICE</th>
+                            <th class="p-1 text-center">DATE</th>
+                            <th class="p-1 text-center">TIME</th>
+                        </tr>
+                    </thead>
+
+                    {% for row in bus_list %}
+                    <tr>
+                        <td class="px-2 py-1 align-middle">{{row.id }}</td>
+                        <td class="px-2 py-1 align-middle">{{row.bus_name}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.source}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.dest}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.nos}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.rem}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.price}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.date}}</td>
+                        <td class="px-2 py-1 align-middle">{{row.time}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <div class="card-title h3 mb-3">Booking Form</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'bookings' %}" method="post" id="book-form">
+                            <h3>Choose bus to book</h3>
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="bus_id" class="control-label">Enter Bus ID</label>
+                                <input name='bus_id' class="form-control rounded-0" type="number" id="bus_id">
+                            </div>
+                            <div class="mb-3">
+                                <label for="no_seats" class="control-label">Number of Seat/s</label>
+                                <input name='no_seats' class="form-control rounded-0" id="no_seats" type="number">
+                            </div>
+                            {% if error %}
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-sm rounded-0 btn-primary w-100" form="book-form">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
